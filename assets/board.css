@@ -1,0 +1,272 @@
+section {
+  background: #cccccc;
+  height: 600px;
+  width: 760px;
+}
+
+.cg_board {
+  position: relative;
+  background: #24201F;
+  height: 600px;
+  width: 600px;
+  transform-style: preserve-3d;
+  transform: translateX(100px) rotateX(60deg) rotateZ(45deg);
+}
+
+.isometric {
+  perspective: 5000px;
+}
+
+.player2 {
+  position: absolute;
+  height: 5%;
+  width: 5%;
+  z-index: 1000;
+  -webkit-transform: rotateX(-90deg) rotateY(45deg);
+  will-transform: translate;
+  transition: 1s;
+}
+
+.sp {
+  border-radius: 100%;
+  background: radial-gradient(circle at 30% 30%, #cccccc, #000);
+}
+
+.sp:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -15%;
+  left: -15%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8) 14%, rgba(255, 255, 255, 0) 24%);
+  filter: blur(1px);
+}
+
+.player {
+  position: absolute;
+  height: 10%;
+  width: 10%;
+  border: 1px solid black;
+  border-radius: 20px;
+  -webkit-transform: rotateX(-90deg) rotateY(45deg) translateY(-6em);
+  transition: 1s;
+  z-index: 1000;
+}
+
+.player:after {
+  content: '';
+  height:20%;
+  border: 8px solid transparent;
+  border-top-color: black;
+  position: absolute;
+  bottom: -46%;
+  left: 38%;
+}
+
+.eg {
+  background: url('https://avatars.io/twitter/eguneys');
+  background-size: cover;
+}
+
+.gg {
+  background: url('https://avatars.io/twitter/heroku');
+  background-size: cover;
+}
+
+.tileOne {
+  top: 70%;
+  left: 40%;
+}
+
+.tileOne:nth-child(3),
+.tileOne:nth-child(4) {
+  top: 80%;
+}
+
+.tile {
+  position: absolute;
+  border: 1px solid black;
+}
+
+.tileX {
+  background: #FF2300;
+  height: 10%;
+  width: 20%;
+}
+.tileY {
+  background: #FFFF00;
+  height: 20%;
+  width: 10%;
+}
+.tileZ {
+  background: #2A7E43;
+  height: 20%;
+  width: 10%;
+  top: 70%;
+}
+.tileW {
+  background: #582A72;
+  height: 10%;
+  width: 20%;
+  left: 70%;
+}
+
+.tileX:after,
+.tileX:before,
+.tileY:after,
+.tileY:before,
+.tileZ:after,
+.tileZ:before,
+.tileW:after,
+.tileW:before {
+  content: '';
+  position: absolute;
+}
+
+.tileX:before,
+.tileX:after {
+  background: #67433E;
+}
+
+.tileY:before,
+.tileY:after {
+  background: #C5C500;
+}
+
+.tileZ:before,
+.tileZ:after {
+  background: #2E4C37;
+}
+
+.tileW:before,
+.tileW:after {
+  background: #3B2B45;
+}
+
+.tileX:after,
+.tileY:after {
+  height: 100%;
+  width: 2em;
+  right: 0px;
+  bottom: 0px;
+  -webkit-transform: rotateY(-90deg) translateZ(-1em) translateX(-1em);
+  z-index: -1;
+}
+.tileX:before,
+.tileY:before {
+  height: 2em;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  -webkit-transform: rotateX(-90deg) translateY(1em) translateZ(1em);
+}
+
+.tileZ:after,
+.tileW:after {
+  width: 100%;
+  height: 2em;
+  bottom: 0px;
+  left: 0px;
+  -webkit-transform: rotateX(-90deg) translateY(1em) translateZ(1em);
+  z-index: -1;
+}
+
+.tileW.one:after {
+  z-index: 1;
+}
+
+.tileZ:before,
+.tileW:before {
+  height: 100%;
+  width: 2em;
+  right: 0px;
+  bottom: 0px;
+  -webkit-transform: rotateY(-90deg) translateZ(-1em) translateX(-1em);
+}
+
+.tileX.one {
+  height: 20%;
+  width: 20%;
+}
+
+.tileX.two {
+  top: 20%;
+}
+
+.tileX.three {
+  top: 30%;
+}
+.tileX.four {
+  top: 40%;
+}
+.tileX.five {
+  top: 50%;
+}
+.tileX.six {
+  top: 60%;
+}
+.tileX.seven {
+  height: 20%;
+  top: 70%;
+}
+
+.tileY.one {
+  height: 20%;
+  width: 20%;
+  left: 70%;
+}
+.tileY.six {
+  left: 20%;
+}
+.tileY.five {
+  left: 30%;
+}
+.tileY.four {
+  left: 40%;
+}
+.tileY.three {
+  left: 50%;
+}
+.tileY.two {
+  left: 60%;
+}
+.tileZ.one {
+  width: 20%;
+}
+.tileZ.two {
+  left: 20%;
+}
+.tileZ.three {
+  left: 30%;
+}
+.tileZ.four {
+  left: 40%;
+}
+.tileZ.five {
+  left: 50%;
+}
+.tileZ.six {
+  left: 60%;
+}
+
+.tileW.six {
+  top: 20%;
+}
+.tileW.five {
+  top: 30%;
+}
+.tileW.four {
+  top: 40%;
+}
+.tileW.three {
+  top: 50%;
+}
+.tileW.two {
+  top: 60%;
+}
+.tileW.one {
+  top: 70%;
+  height: 20%;
+}
