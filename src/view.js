@@ -2,19 +2,7 @@ import m from 'mithril';
 import util from './util';
 
 var tileTag = 'tile';
-
-function renderTile(key, classes) {
-  var attrs = {
-    key: 's' + key,
-    class: 'tile ' + classes,
-    style: {}
-  };
-  
-  return {
-    tag: 'div',
-    attrs: attrs
-  };
-}
+var houseTag = 'house';
 
 const tileClasses = {
   0: 'tileX',
@@ -31,6 +19,71 @@ const tileCoords = {
   5: 'five',
   6: 'six'
 };
+
+const houseTileXClass = {
+  x: 'hTileX hS2',
+  y: 'hTileY hS',
+  z: 'hTileZ hS',
+  w: 'hTileW hS2'
+};
+
+const houseTileYClass = {
+  1: 'one',
+  2: 'two',
+  3: 'three',
+  4: 'four',
+  5: 'five',
+  6: 'six'
+};
+
+
+function houseTileClass(key) {
+  return houseTileXClass[key[0]]
+    + ' '
+    + houseTileYClass[key[1]];
+}
+
+function houseClass(h) {
+  return [houseTag,
+          h.rank,
+          h.color].join(' ');
+}
+
+
+function renderHouse(d, key) {
+  var attrs = {
+    key: 'h' + key,
+    style: {},
+    config: function(el, isUpdate, context) {
+      if (isUpdate) return;
+      var oldKlass = el.className;
+      el.className += ' hPop';
+      setTimeout(function() {
+        el.className = oldKlass;
+      }, .3);
+    },
+    class: [houseClass(d.houses[key]),
+            houseTileClass(key)].join(' ')
+  };
+
+  return {
+    tag: 'div',
+    attrs: attrs
+  };
+}
+
+function renderTile(key, classes) {
+  var attrs = {
+    key: 's' + key,
+    class: 'tile ' + classes,
+    style: {}
+  };
+  
+  return {
+    tag: 'div',
+    attrs: attrs
+  };
+}
 
 function renderTiles(ctrl) {
   var dom = [];
@@ -53,6 +106,13 @@ function renderContent(ctrl) {
   var d = ctrl.data;
 
   var children = renderTiles(ctrl);
+
+  var keys = util.allKeys;
+  for (var i in keys) {
+    if (d.houses[keys[i]]) {
+      children.push(renderHouse(d, keys[i]));
+    }
+  }
 
   return children;
 }

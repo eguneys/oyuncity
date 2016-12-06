@@ -8,10 +8,23 @@
   <body>
     <h1>Gulpp Project</h1>
     <div id="gulpp"></div>
+    <div>
+      <button onClick="addHouse()">Add house</button>
+    </div>
     <script>
-      (function() {
-        var ground = Gulpp(document.getElementById('gulpp'));
-      })();
+     var ground;
+     (function() {
+       ground = Gulpp(document.getElementById('gulpp'));
+     })();
+
+     function addHouse() {
+       var tiles = 'xyzw';
+
+       for (var i in tiles) {
+         for (var k = 2; k < 6; k++)
+           ground.addHouse(tiles[i] + k);
+       }
+     }
     </script>
   </body>
 </html>
