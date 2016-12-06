@@ -9,6 +9,9 @@ module.exports = function(cfg) {
       z6: { rank: 'flat', color: 'yellow' },
       w2: { rank: 'flat', color: 'yellow' },
       w6: { rank: 'flat', color: 'yellow' }
+    },
+    players: {
+      p1: { pos: 'x1' }
     }
   };
 

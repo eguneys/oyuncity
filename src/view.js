@@ -85,6 +85,37 @@ function renderTile(key, classes) {
   };
 }
 
+function renderPlayerImage(data, player) {
+  var attrs = {
+    class: 'player',
+    style: {}
+  };
+  
+  return {
+    tag: 'div',
+    attrs: attrs
+  };
+}
+
+function renderPlayerTag(data, player) {
+  var attrs = {
+    class: 'player2 sp',
+    style: {}
+  };
+  
+  return {
+    tag: 'div',
+    attrs: attrs
+  };
+}
+
+function renderPlayer(data, player) {
+  return [
+    renderPlayerImage(data, player),
+    renderPlayerTag(data, player)
+  ];
+}
+
 function renderTiles(ctrl) {
   var dom = [];
 
@@ -112,6 +143,10 @@ function renderContent(ctrl) {
     if (d.houses[keys[i]]) {
       children.push(renderHouse(d, keys[i]));
     }
+  }
+
+  for (var p in d.players) {
+    children.push(renderPlayer(d, d.players[p]));
   }
 
   return children;
